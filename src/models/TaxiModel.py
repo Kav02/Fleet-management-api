@@ -4,7 +4,7 @@ from .entities.TaxiE import Taxi
 class TaxiModel():
 
     @classmethod
-    def get_taxi(cls, page=1, per_page=5):
+    def get_taxi(cls, page=1, per_page=20):
        # connection = connect_to_db()
         try:
             taxies_paginated = Taxi.query.paginate(

@@ -41,7 +41,9 @@ def get_taxies_list():
     try:
         # request.args.get('page', 1): Esto obtiene el valor del parámetro "page" de la URL de la solicitud HTTP. Se utiliza el valor predeterminado de 1, si no dice.
         page = int(request.args.get('page', 1))
-        per_page = 5
+        # Por defecto, 10 registros por página
+        per_page = int(request.args.get('per_page', 10))
+
         taxies_paginated = TaxiModel.get_taxi(page=page, per_page=per_page)
         taxies_list = [taxi.to_JSON() for taxi in taxies_paginated.items]
         return jsonify({
@@ -57,7 +59,7 @@ def get_taxies_list():
 def get_locations_list():
     try:
         page = int(request.args.get('page', 1))
-        per_page = 10
+        per_page = int(request.args.get('per_page', 10))
         locations_paginated = LocationModel.get_location(
             page=page, per_page=per_page)
         locations_list = [location.to_JSON()

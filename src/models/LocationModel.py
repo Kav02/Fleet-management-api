@@ -4,7 +4,7 @@ from .entities.LocationE import Location
 class LocationModel():
 
     @classmethod
-    def get_location(cls, page=1, per_page=5):
+    def get_location(cls, page=1, per_page=10):
        # connection = connect_to_db()
         try:
             location_paginated = Location.query.paginate(
