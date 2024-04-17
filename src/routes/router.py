@@ -1,9 +1,9 @@
 
 from flask import Blueprint, jsonify, request, send_from_directory
-from models.TaxiModel import TaxiModel
-from models.LocationModel import LocationModel
-from models.entities.TaxiE import Taxi
-from config import Config
+from src.models.TaxiModel import TaxiModel
+from src.models.LocationModel import LocationModel
+from src.models.entities.TaxiEntity import Taxi
+from src.config import Config
 from flask_swagger_ui import get_swaggerui_blueprint
 
 main_bp = Blueprint("main_bp", __name__)
@@ -58,10 +58,13 @@ def get_taxies_list():
 @location_bp.route('/location', methods=['GET'])
 def get_locations_list():
     try:
+        date_requested = (request.args.get('date'))
+        taxi_id = (request.args.get('taxi_id'))
         page = int(request.args.get('page', 1))
         per_page = int(request.args.get('per_page', 10))
-        locations_paginated = LocationModel.get_location(
-            page=page, per_page=per_page)
+
+        locations_paginated = LocationModel.get_location_by_date_and_taxi(
+            taxi_id=taxi_id, date_requested=date_requested, page=page, per_page=per_page)
         locations_list = [location.to_JSON()
                           for location in locations_paginated.items]
         return jsonify({

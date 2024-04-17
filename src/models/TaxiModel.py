@@ -1,4 +1,4 @@
-from .entities.TaxiE import Taxi
+from .entities.TaxiEntity import Taxi
 
 
 class TaxiModel():
