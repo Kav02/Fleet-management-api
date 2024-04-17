@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime, func, Float
-from database.db import db
+from src.database.db import db
 
 
 class Location(db.Model):
@@ -8,7 +8,7 @@ class Location(db.Model):
 
     id = db.Column(Integer, primary_key=True)
     taxi_id = db.Column(Integer, nullable=False)
-    date = db.Column(DateTime(timezone=False), default=func.now())
+    date = db.Column(DateTime(timezone=False), nullable=True)
     latitude = db.Column(Float, nullable=False)
     longitude = db.Column(Float, nullable=False)
 
