@@ -14,6 +14,10 @@
     {
       "name": "Taxi",
       "description": "Get list of taxis"
+    },
+    {
+      "name": "Location",
+      "description": "Get location by taxi and date"
     }
   ],
   "paths": {
@@ -43,8 +47,56 @@
           }
         }
       }
+    },
+    "/location": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "summary": "Get list of locations",
+        "description": "Returns a list of locations by taxi and date",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "taxi_id",
+            "description": "The ID of the taxi",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "description": "The date for filtering locations",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Location"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses"
+          }
+        }
+      }
     }
-  },
+     }   ,
   "components": {
     "schemas": {
       "Taxi": {
@@ -56,6 +108,29 @@
           "plate": {
             "type": "string"
           }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "taxi_id": {
+            "type": "integer"
+          },
+          "date":{
+            "type": "string",
+            "format": "date-time"
+          },
+          "latitude":{
+              "type": "number",
+              "format": "double"
+            },
+          "longitude":{
+              "type": "number",
+              "format": "double"
+            }
         }
       }
     },
