@@ -28,6 +28,39 @@
         ],
         "summary": "Get list of taxis",
         "description": "Returns a list of all taxis",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "plate",
+            "description": "The plate of the taxi",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "description": "Requested page",
+            "default": 1,
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "items_per_page",
+            "description": "Quantity of items per page",
+            "default": 10,
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
