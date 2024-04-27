@@ -3,7 +3,7 @@ from src.database.db import db
 
 
 class Taxi(db.Model):
-    __tablename__ = 'taxies'
+    __tablename__ = 'taxis'
 
     id = db.Column(Integer, primary_key=True)
     plate = db.Column(String(20), nullable=False)

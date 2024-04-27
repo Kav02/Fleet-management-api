@@ -5,15 +5,13 @@ class TaxiModel():
 
     @classmethod
     def get_taxi(cls, page=1, per_page=20):
-       # connection = connect_to_db()
+
         try:
             taxies_paginated = Taxi.query.paginate(
                 page=page, per_page=per_page)
             return taxies_paginated
         except Exception as ex:
             raise Exception(ex)
-        # finally:
-        #     connection.close()
 
     @classmethod
     def get_taxi_as_json(cls):
