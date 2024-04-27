@@ -1,6 +1,7 @@
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey
 from src.database.db import db
+from sqlalchemy.dialects.postgresql import JSON
 
 
 class Location(db.Model):
@@ -12,14 +13,17 @@ class Location(db.Model):
     latitude = db.Column(Float, nullable=False)
     longitude = db.Column(Float, nullable=False)
 
-    def __repr__(self):
-        return f"<Trajectorie(id={self.id}, taxi_id ='{self.taxi_id}', date = '{self.date}',latitude = '{self.latitude}',longitude = '{self.longitude}')>"
+    def toDict(self):
+        return {c.key: getattr(self, c.key) for c in self.__table__.columns}
 
-    def to_JSON(self):
-        return {
-            'id':  self.id,
-            'taxi_id': self.taxi_id,
-            'date': self.date,
-            'latitude': self.latitude,
-            'longitude': self.longitude
-        }
+    # def __repr__(self):
+    #     return f"<Trajectorie(id={self.id}, taxi_id ='{self.taxi_id}', date = '{self.date}',latitude = '{self.latitude}',longitude = '{self.longitude}')>"
+
+    # def to_JSON(self):
+    #     return {
+    #         'id':  self.id,
+    #         'taxi_id': self.taxi_id,
+    #         'date': self.date,
+    #         'latitude': self.latitude,
+    #         'longitude': self.longitude
+    #     }

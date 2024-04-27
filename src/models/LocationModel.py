@@ -18,12 +18,12 @@ class LocationModel():
         except Exception as ex:
             raise Exception(ex)
 
-    @classmethod
-    def get_location_as_json(cls):
-        try:
-            locations = cls.get_location()
-            locations_json = [location.to_JSON()
-                              for location in locations]
-            return locations_json
-        except Exception as ex:
-            raise Exception(ex)
+    # @classmethod
+    # def get_location_as_json(cls):
+    #     try:
+    #         locations = cls.get_location()
+    #         locations_json = [location.to_JSON()
+    #                           for location in locations]
+    #         return locations_json
+    #     except Exception as ex:
+    #         raise Exception(ex)
