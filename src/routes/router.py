@@ -93,12 +93,18 @@ def get_locations_list():
 def get_latest_location_list():
 
     try:
-        latest_location = LatestLocationModel.get_latest_location()
-        latest_list = LatestLocationModel.latest_to_json(latest_location)
-
+       # page = int(request.args.get('page', 1))
+        # per_page = int(request.args.get('per_page', 10))
+        latest_location = LatestLocationModel.get_latest_location(
+        )
+        # print(latest_location)
+        latest_list = [LatestLocationModel.latest_to_json(
+            latest_location) for location in latest_location]
+        # print(latest_list)
         return jsonify({
             'locations': latest_list,
-
+            # 'total_pages': latest_list.pages,
+            # 'current_page': latest_list.page
         }), 200
     except Exception as ex:
         return jsonify({'message': str(ex)}), 500

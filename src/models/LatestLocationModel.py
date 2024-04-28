@@ -1,17 +1,37 @@
+from datetime import datetime
+import json
 from .entities.LocationEntity import Location
 from .entities.TaxiEntity import Taxi
 from sqlalchemy import func, select
 from flask import jsonify
+from src.database.db import db
 
 
 class LatestLocationModel():
     @classmethod
     def get_latest_location(cls):
         try:
-            latest_locations = (Location.query(
-                Location.taxi_id, func.max(Location.date).group).all())
-            print(len(latest_locations))
-            return latest_locations
+            subquery = Location.query.with_entities(
+                Location.taxi_id, func.max(Location.date).label('latest_date')).group_by(Location.taxi_id).subquery()
+
+            latest_locations = db.session.query(
+                Taxi.id,
+                Taxi.plate,
+                Location.latitude,
+                Location.longitude,
+                Location.date
+            ).join(
+                Location, Taxi.id == Location.taxi_id
+            ).join(
+                subquery,
+                (Location.taxi_id == subquery.c.taxi_id) & (
+                    Location.date == subquery.c.latest_date)
+            )
+
+            results = latest_locations.all()
+
+            return results
+
         except Exception as ex:
             raise Exception(ex)
 
@@ -20,12 +40,14 @@ class LatestLocationModel():
         latest_location_json = []
         for result in results:
             location_data = {
-                'id': result[0],
-                'plate': result[1],
-                'latitude': result[2],
-                'longitude': result[3],
-                # Convertir la fecha a formato ISO para JSON
-                'date': result[4].isoformat()
+                'id': result.id,
+                'plate': result.plate,
+                'latitude': result.latitude,
+                'longitude': result.longitude,
+                # Convertir la fecha
+                'date': result.date.isoformat()
+
             }
             latest_location_json.append(location_data)
+            print(latest_location_json)
         return latest_location_json

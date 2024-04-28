@@ -1,4 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy, session
+from flask_sqlalchemy import SQLAlchemy
 from src.config import Config
 
 db = SQLAlchemy()
