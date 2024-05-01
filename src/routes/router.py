@@ -1,11 +1,13 @@
-
-from flask import Blueprint, jsonify, request, send_from_directory
-from src.models.TaxiModel import TaxiModel
-from src.models.LocationModel import LocationModel
-from src.models.LatestLocationModel import LatestLocationModel
-from src.config import Config
-from flask_swagger_ui import get_swaggerui_blueprint
+"""
+This module contains the routes for the Fleet Management API.
+"""
 from datetime import datetime
+from flask import Blueprint, jsonify, request, send_from_directory
+from flask_swagger_ui import get_swaggerui_blueprint
+from src.config import Config
+from src.models.LatestLocationModel import LatestLocationModel
+from src.models.LocationModel import LocationModel
+from src.models.TaxiModel import TaxiModel
 
 main_bp = Blueprint("main_bp", __name__)
 taxi_bp = Blueprint("taxi_bp", __name__)
@@ -29,18 +31,21 @@ swaggerui_bp = get_swaggerui_blueprint(
 
 @main_bp.route('/apidocs/swagger.json')
 def swagger_json():
+    '''Returns the swagger.json file.'''
     return send_from_directory('static', 'swagger.json')
 
 
 @main_bp.route('/')
 def index():
+    '''Main Page'''
     return jsonify({'message': 'Main Page'})
 
 
 @taxi_bp.route('/taxi', methods=['GET'])
 def get_taxis_list():
+    '''Returns a list of taxis paginated.'''
     try:
-        # request.args.get('page', 1): Esto obtiene el valor del parámetro "page" de la URL de la solicitud HTTP. Se utiliza el valor predeterminado de 1, si no dice.
+        # request... Obtiene el valor del parámetro "page" de la URL del HTTP.
         page = int(request.args.get('page', 1))
         # Por defecto, 10 registros por página
         per_page = int(request.args.get('per_page', 10))
@@ -48,7 +53,7 @@ def get_taxis_list():
         # taxis_list = [taxi.to_JSON() for taxi in taxis_paginated.items]
         taxis_list = []
         for taxi in taxis_paginated.items:
-            taxis_list.append(taxi.toDict())
+            taxis_list.append(taxi.to_dict())
 
         return jsonify({
             'taxis': taxis_list,
@@ -61,8 +66,9 @@ def get_taxis_list():
 
 @ location_bp.route('/location', methods=['GET'])
 def get_locations_list():
-    date_requested = (request.args.get('date'))
-    taxi_id = (request.args.get('taxi_id'))
+    '''Returns the locations paginated. '''
+    date_requested = request.args.get('date')
+    taxi_id = request.args.get('taxi_id')
     page = int(request.args.get('page', 1))
     per_page = int(request.args.get('per_page', 10))
     if not (date_requested and taxi_id):
@@ -91,14 +97,28 @@ def get_locations_list():
 
 @ location_bp.route('/location/latest', methods=['GET'])
 def get_latest_location_list():
-
+    '''Returns the latest locations paginated.'''
     try:
-        latest_location = LatestLocationModel.get_latest_location()
-        latest_list = LatestLocationModel.latest_to_json(latest_location)
+        page = int(request.args.get('page', 1))
+        per_page = int(request.args.get('per_page', 10))
+        latest_location = LatestLocationModel.get_latest_location(
+        )
+        # print(latest_location)
+        total_pages = len(latest_location) // per_page
+        if len(latest_location) % per_page != 0:
+            total_pages += 1
 
+        start_index = (page - 1) * per_page
+        end_index = start_index + per_page
+
+        paginated_locations = latest_location[start_index:end_index]
+        latest_list = LatestLocationModel.latest_to_json(
+            paginated_locations)
+        # print(latest_list)
         return jsonify({
             'locations': latest_list,
-
+            'total_pages': total_pages,
+            'current_page': page
         }), 200
     except Exception as ex:
         return jsonify({'message': str(ex)}), 500
