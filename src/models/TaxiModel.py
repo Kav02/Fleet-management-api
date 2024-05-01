@@ -1,8 +1,8 @@
-from .entities.TaxiEntity import Taxi
+from src.models.entities.TaxiEntity import Taxi
 
 
 class TaxiModel():
-
+    '''TaxiModel class to get data from Taxi entity'''
     @classmethod
     def get_taxi(cls, page=1, per_page=20):
 
@@ -12,12 +12,3 @@ class TaxiModel():
             return taxis_paginated
         except Exception as ex:
             raise Exception(ex)
-
-    # @classmethod
-    # def get_taxi_as_json(cls):
-    #     try:
-    #         taxies = cls.get_taxi()
-    #         taxies_json = [taxi.to_JSON() for taxi in taxies]
-    #         return taxies_json
-        # except Exception as ex:
-        #     raise Exception(ex)

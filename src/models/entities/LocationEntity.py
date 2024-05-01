@@ -1,10 +1,19 @@
-from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey
+from sqlalchemy import Integer, Float, ForeignKey, DateTime
 from src.database.db import db
-from sqlalchemy.dialects.postgresql import JSON
 
 
 class Location(db.Model):
+    '''
+    Represents a location entity in the fleet management system.
+
+    Attributes:
+        id (int): The unique identifier for the location.
+        taxi_id (int): The ID of the taxi associated with the location.
+        date (datetime): The date and time of the location.
+        latitude (float): The latitude coordinate of the location.
+        longitude (float): The longitude coordinate of the location.
+    '''
+
     __tablename__ = 'trajectories'
 
     id = db.Column(Integer, primary_key=True)
@@ -13,17 +22,10 @@ class Location(db.Model):
     latitude = db.Column(Float, nullable=False)
     longitude = db.Column(Float, nullable=False)
 
-    def toDict(self):
+    def to_dict(self):
+        '''
+        Converts the Location object to a dictionary.
+        Returns:
+            dict: A dictionary representation of the Location object.
+        '''
         return {c.key: getattr(self, c.key) for c in self.__table__.columns}
-
-    # def __repr__(self):
-    #     return f"<Trajectorie(id={self.id}, taxi_id ='{self.taxi_id}', date = '{self.date}',latitude = '{self.latitude}',longitude = '{self.longitude}')>"
-
-    # def to_JSON(self):
-    #     return {
-    #         'id':  self.id,
-    #         'taxi_id': self.taxi_id,
-    #         'date': self.date,
-    #         'latitude': self.latitude,
-    #         'longitude': self.longitude
-    #     }
