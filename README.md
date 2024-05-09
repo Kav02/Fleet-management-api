@@ -56,114 +56,6 @@ API REST.
 
 Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
 
-### Java
-
-- [ ] **Modificadores de acesso (public, private, protected)**
-
-- [ ] **Variables**
-
-- [ ] **Uso de condicionales**
-
-- [ ] **Uso de bucles (Loops)**
-
-#### Tipos de data
-
-- [ ] **Primitivos**
-
-- [ ] **Datos primitivos vs no primitivos**
-
-- [ ] **Cadenas**
-
-- [ ] **Arreglos**
-
-#### Colecciones
-
-- [ ] **ArrayList**
-
-- [ ] **HashMap**
-
-- [ ] **HashSet**
-
-#### Testing
-
-- [ ] **JUnit**
-
-- [ ] **Mockito**
-
-#### Spring Framework
-
-- [ ] **Initializr**
-
-  <details><summary>Links</summary><p>
-
-  * [Spring Initializr](https://start.spring.io/)
-</p></details>
-
-- [ ] **Spring Boot**
-
-  <details><summary>Links</summary><p>
-
-  * [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
-</p></details>
-
-- [ ] **Controladores**
-
-- [ ] **Servicios**
-
-- [ ] **Spring Data JPA**
-
-  <details><summary>Links</summary><p>
-
-  * [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
-</p></details>
-
-- [ ] **Entidad**
-
-- [ ] **Repositorio**
-
-##### Conceptos Core _(Spring Framework)_
-
-- [ ] **Beans**
-
-- [ ] **Inversión de Control**
-
-- [ ] **Anotaciones**
-
-##### Spring Web _(Spring Framework)_
-
-- [ ] **RestController**
-
-- [ ] **RequestMapping**
-
-- [ ] **RequestParam**
-
-##### Testing _(Spring Framework)_
-
-- [ ] **Spring Test**
-
-- [ ] **Hamcrest**
-
-#### Hibernate ORM
-
-- [ ] **Configuración**
-
-- [ ] **Esquema**
-
-- [ ] **Entidad**
-
-- [ ] **Tabla**
-
-- [ ] **Columna**
-
-- [ ] **Identificadores**
-
-- [ ] **Asociaciones**
-
-- [ ] **Colecciones**
-
-- [ ] **Persistencia**
-
-- [ ] **Consultas**
 
 ### Python
 
@@ -385,6 +277,9 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 </p></details>
 
 #### Flask
+*Flask Blueprints encapsulate functionality, such as views, templates, and other resources.
+SQL Alchemy db.models: Para crear las tablas equivalentes a la bd *
+
 
 ##### Rutas _(Flask)_
 
@@ -574,7 +469,8 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### Programación Orientada a Objetos (OOP)
 
-- [ ] **Clases**
+- [X] **Clases**
+      *Una clase crea una estructura de datos definida por el usuario, que contiene sus propios datos y funciones. Y crear una instancia de esa clase te permite reutilizar esos datos y funciones. Se escriben con PascalCase*
 
 - [ ] **Objetos**
 
@@ -596,47 +492,11 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 - [ ] **Lenguaje de Modelado Unificado (UML, class diagrams)**
 
-### Node.js
 
-- [ ] **Instalar y usar módulos con npm**
-
-  <details><summary>Links</summary><p>
-
-  * [Sitio oficial de npm (en inglés)](https://www.npmjs.com/)
-</p></details>
-
-- [ ] **Configuración de package.json**
-
-  <details><summary>Links</summary><p>
-
-  * [package.json - Documentación oficial (en inglés)](https://docs.npmjs.com/files/package.json)
-</p></details>
-
-- [ ] **Configuración de npm-scripts**
-
-  <details><summary>Links</summary><p>
-
-  * [scripts - Documentación oficial (en inglés)](https://docs.npmjs.com/misc/scripts)
-</p></details>
-
-- [ ] **process (env, argv, stdin-stdout-stderr, exit-code)**
-
-  <details><summary>Links</summary><p>
-
-  * [Process - Documentación oficial (en inglés)](https://nodejs.org/api/process.html)
-</p></details>
-
-- [ ] **File system (fs, path)**
-
-  <details><summary>Links</summary><p>
-
-  * [File system - Documentación oficial (en inglés)](https://nodejs.org/api/fs.html)
-  * [Path - Documentación oficial (en inglés)](https://nodejs.org/api/path.html)
-</p></details>
 
 ### SQL
 
-- [ ] **Creación y modificación de tablas**
+- [X] **Creación y modificación de tablas**
 
   <details><summary>Links</summary><p>
 
@@ -645,7 +505,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [ALTER TABLE Statement - PostgreSQL Docs (en inglés)](https://www.postgresql.org/docs/9.1/sql-altertable.html)
 </p></details>
 
-- [ ] **Operaciones CRUD (Create-Read-Update-Delete)**
+- [X] **Operaciones CRUD (Create-Read-Update-Delete)**
 
   <details><summary>Links</summary><p>
 

@@ -76,7 +76,7 @@
             }
           },
           "400": {
-            "$ref": "#/components/responses"
+            "$ref": "#/components/responses/BadRequest"
           }
         }
       }
@@ -124,12 +124,66 @@
             }
           },
           "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500":{
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+  "/location/latest": {
+      "get": {
+        "tags": [
+          "Latest Location"
+        ],
+        "summary": "Get list of the latest locations of the taxis",
+        "description": "Returns a list of the latest locations by taxi",
+        "parameters": [
+        {
+            "in": "query",
+            "name": "page",
+            "description": "Requested page",
+            "default": 1,
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "items_per_page",
+            "description": "Quantity of items per page",
+            "default": 10,
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Location/latest"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
             "$ref": "#/components/responses"
           }
         }
       }
     }
-     }   ,
+    },
   "components": {
     "schemas": {
       "Taxi": {
@@ -165,18 +219,42 @@
               "format": "double"
             }
         }
+      },
+      "Location/Latests": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "plate": {
+            "type": "string"
+          },
+          "date":{
+            "type": "string",
+            "format": "date-time"
+          },
+          "latitude":{
+              "type": "number",
+              "format": "double"
+            },
+          "longitude":{
+              "type": "number",
+              "format": "double"
+            }
+    }
       }
     },
     "responses": {
-      "NotFound": {
-        "description": "(Not found) Information not found"
-      },
-      "BadRequest": {
-        "description": "(Bad Request)The request is not valid"
-      },
-      "ServerError": {
-        "description": "(Server Error) No response from server"
-      }
+    "NotFound": {
+      "description": "(Not found) Information not found"
+    },
+    "BadRequest": {
+      "description": "(Bad Request)The request is not valid"
+    },
+    "ServerError": {
+      "description": "(Server Error) No response from server"
+    }
+
     }
   }
 }

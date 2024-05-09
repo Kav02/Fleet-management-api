@@ -5,18 +5,13 @@ from src.models.entities.TaxiEntity import Taxi
 
 
 class LatestLocationModel():
-    """
-    Represents a model for retrieving the latest location data for taxis.
-    """
+    '''Represents a model for retrieving the latest location data for taxis.'''
 
     @classmethod
     def get_latest_location(cls):
-        """
-        Retrieves the latest location data for taxis.
+        '''Retrieves the latest location data for taxis.
+        Returns:A list of tuples containing the latest location data for each taxi.'''
 
-        Returns:
-            A list of tuples containing the latest location data for each taxi.
-        """
         try:
             # with entities to load specific columns
             subquery = Location.query.with_entities(
@@ -37,6 +32,7 @@ class LatestLocationModel():
             )
 
             results = latest_locations.all()
+            print('Results', type(results))
             return results
 
         except Exception as ex:
@@ -44,17 +40,17 @@ class LatestLocationModel():
 
     @classmethod
     def latest_to_json(cls, results):
-        """
+        '''
         Converts the latest location data to JSON format.
-
         Args:
             results: A list of tuples containing the latest location data for each taxi.
-
         Returns:
             A list of dictionaries representing the latest location data in JSON format.
-        """
+        '''
+        #print('Input data:', results)
         latest_location_json = []
         for result in results:
+            #print('Processing result:', result)
             location_data = {
                 'id': result.id,
                 'plate': result.plate,
@@ -65,4 +61,6 @@ class LatestLocationModel():
 
             }
             latest_location_json.append(location_data)
+            #print('Output data:', latest_location_json)
+        print('Type Latest_location_json', type(latest_location_json))
         return latest_location_json
