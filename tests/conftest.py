@@ -1,9 +1,15 @@
+# test_conftest.py
+
 from datetime import datetime
+from unittest.mock import patch
 import pytest
 from src.app import create_app
-from unittest.mock import patch
 from src.database import db
 
+@pytest.fixture()
+def base_url():
+    """Provides the base URL of the API under test."""
+    return "http://127.0.0.1:5000"
 
 @pytest.fixture
 def app():
@@ -32,20 +38,9 @@ def mock_session(app):
 
 
 @pytest.fixture
+
 def results():
     return [
-        {
-            'id': 1,
-            'plate': 'ABC123',
-            'latitude': 37.7749,
-            'longitude': -122.4194,
-            'date': datetime(2022, 1, 1, 12, 0, 0)
-        },
-        {
-            'id': 2,
-            'plate': 'DEF456',
-            'latitude': 34.0522,
-            'longitude': -118.2437,
-            'date': datetime(2022, 1, 2, 10, 30, 0)
-        }
+    (1, 'ABC123', 37.7749, -122.4194, datetime(2022, 1, 1, 12, 0, 0)),
+    (2, 'DEF456', 34.0522, -118.2437, datetime(2022, 1, 2, 10, 30, 0))
     ]

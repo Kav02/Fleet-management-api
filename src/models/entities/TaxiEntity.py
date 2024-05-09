@@ -3,11 +3,7 @@ from src.database.db import db
 
 
 class Taxi(db.Model):
-    """_summary_
-
-    Returns:
-        _type_: _description_
-    """
+    ''' Represents a taxi entity in the fleet management system.'''
 
     __tablename__ = 'taxis'
 
@@ -15,9 +11,5 @@ class Taxi(db.Model):
     plate = db.Column(String(20), nullable=False)
 
     def to_dict(self):
-        """_summary_
-
-        Returns:
-            _type_: _description_
-        """
+        ''' Converts the Taxi object to a dictionary.'''
         return {c.key: getattr(self, c.key) for c in self.__table__.columns}

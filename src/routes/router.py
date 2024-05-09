@@ -85,7 +85,7 @@ def get_locations_list():
         #                 for location in locations_paginated.items]  # Dictionaries are not iterable directly using for. The .items method provides a way to iterate over both the keys and values.
         locations_list = []
         for location in locations_paginated.items:
-            locations_list.append(location.toDict())
+            locations_list.append(location.to_dict())
         return jsonify({
             'locations': locations_list,
             'total_pages': locations_paginated.pages,

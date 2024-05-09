@@ -1,5 +1,5 @@
 
-from flask_testing import TestCase
+
 import pytest
 from src.config import Config, config
 
