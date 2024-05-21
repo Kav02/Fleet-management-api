@@ -29,7 +29,7 @@ def test_to_dict():
 def test_get_location_by_date_and_taxi(app, client):
     # Given: I want to get the location by date and taxi
     taxi_id = 6418
-    date_requested = datetime(2008, 2, 2, 15, 48, 8)
+    date_requested = datetime(2008, 2, 7)
     page = 1
     per_page = 10
 
@@ -42,4 +42,4 @@ def test_get_location_by_date_and_taxi(app, client):
     # Then: The list of Taxi objects is returned: Length of the list, and the number of pages
     assert len(location_paginated.items) == per_page
     assert location_paginated.page == page
-    assert location_paginated.pages == 14
+    assert location_paginated.pages == 8

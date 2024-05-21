@@ -3,16 +3,7 @@ from src.database.db import db
 
 
 class Location(db.Model):
-    '''
-    Represents a location entity in the fleet management system.
-
-    Attributes:
-        id (int): The unique identifier for the location.
-        taxi_id (int): The ID of the taxi associated with the location.
-        date (datetime): The date and time of the location.
-        latitude (float): The latitude coordinate of the location.
-        longitude (float): The longitude coordinate of the location.
-    '''
+    '''Represents a location entity in the fleet management system.'''
 
     __tablename__ = 'trajectories'
 
@@ -23,9 +14,6 @@ class Location(db.Model):
     longitude = db.Column(Float, nullable=False)
 
     def to_dict(self):
-        '''
-        Converts the Location object to a dictionary.
-        Returns:
-            dict: A dictionary representation of the Location object.
-        '''
+        #For each column, get the key and value and return it as a dictionary
+        ''' Converts the Location object to a dictionary.'''
         return {c.key: getattr(self, c.key) for c in self.__table__.columns}

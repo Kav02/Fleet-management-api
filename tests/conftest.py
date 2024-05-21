@@ -18,13 +18,13 @@ def app():
 
 
 @pytest.fixture
-def client(app):
+def client(app,client):
     return app.test_client()
 
 
 @pytest.fixture
 def app_context():
-    app = create_app()
+    app = create_app('development')
     with app.app_context():
         yield
 

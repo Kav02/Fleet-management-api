@@ -59,7 +59,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### Python
 
-- [ ] **Variables (declaración, asignación, ámbito)**
+- [X] **Variables (declaración, asignación, ámbito)**
 
   <details><summary>Links</summary><p>
 
@@ -67,28 +67,28 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Variables in Python - GeeksforGeeks (en inglés)](https://www.geeksforgeeks.org/python-variables/)
 </p></details>
 
-- [ ] **Uso de condicionales (if, elif, ternario)**
+- [X] **Uso de condicionales (if, elif, ternario)**
 
   <details><summary>Links</summary><p>
 
   * [Conditional Statements in Python – Real Python (en inglés)](https://realpython.com/python-conditional-statements/)
 </p></details>
 
-- [ ] **Operadores (identidad, aritméticos, comparación etc)**
+- [X] **Operadores (identidad, aritméticos, comparación etc)**
 
   <details><summary>Links</summary><p>
 
   * [Python Operators - GeeksforGeeks (en inglés)](https://www.geeksforgeeks.org/python-operators/)
 </p></details>
 
-- [ ] **Docstrings (y su diferencia de comentarios)**
+- [X] **Docstrings (y su diferencia de comentarios)**
 
   <details><summary>Links</summary><p>
 
   * [Docstrings - Python Docs (en inglés)](https://docs.python.org/3/tutorial/controlflow.html#documentation-strings)
 </p></details>
 
-- [ ] **Linting (pylint)**
+- [X] **Linting (pylint)**
 
   <details><summary>Links</summary><p>
 
@@ -96,16 +96,17 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Linting Python in Visual Studio Code - Visual Studio Code Docs (en inglés)](https://code.visualstudio.com/docs/python/linting)
 </p></details>
 
-- [ ] **Serialización (y deserialización)**
+- [X] **Serialización (y deserialización)**
 
   <details><summary>Links</summary><p>
 
   * [Serialize Your Data With Python – Real Python (en inglés)](https://realpython.com/python-serialize-data/)
 </p></details>
+Flask serializa los datos en una cadena formateada en JSON, envuelve la carga útil en una respuesta HTTP y establece el encabezado Content-Type a application/json antes de enviarlo al cliente. El serializador predeterminado en Flask puede manejar algunos tipos de datos adicionales, incluyendo clases de datos, fechas y horas, números decimales y UUIDs.
 
 #### Tipos de datos
 
-- [ ] **Tipos de datos primitivos (int, float, str, bool)**
+- [X] **Tipos de datos primitivos (int, float, str, bool)**
 
   <details><summary>Links</summary><p>
 
@@ -113,7 +114,12 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Data types in Python (en inglés)](https://www.educative.io/answers/data-types-in-python)
 </p></details>
 
-- [ ] **Listas (arrays)**
+- [X] **Listas (arrays)**
+  # Ejemplos de diferenciación
+  lista = [1, 2, 3] Mutable
+  tupla = (1, 2, 3) Inmutable
+  diccionario = {'clave1': 'valor1', 'clave2': 'valor2'} Mutable
+
 
   <details><summary>Links</summary><p>
 
@@ -121,7 +127,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Lists and Tuples in Python - Real Python (en inglés)](https://realpython.com/python-lists-tuples/)
 </p></details>
 
-- [ ] **Tuples**
+- [X] **Tuples**
 
   <details><summary>Links</summary><p>
 
@@ -129,7 +135,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Lists and Tuples in Python - Real Python (en inglés)](https://realpython.com/python-lists-tuples/)
 </p></details>
 
-- [ ] **Dictionaries (Dicts)**
+- [X] **Dictionaries (Dicts)**
 
   <details><summary>Links</summary><p>
 
@@ -137,7 +143,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Dictionaries in Python - Real Python (en inglés)](https://realpython.com/python-dicts/)
 </p></details>
 
-- [ ] **Sets**
+- [X] **Sets**
 
   <details><summary>Links</summary><p>
 
@@ -147,28 +153,34 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 #### Funciones
 
-- [ ] **Conceptos basicos (params, args, default values, return)**
+- [X] **Conceptos basicos (params, args, default values, return)**
 
   <details><summary>Links</summary><p>
 
   * [Python Functions - GeeksforGeeks (en ingles)](https://www.geeksforgeeks.org/python-functions/)
 </p></details>
 
-- [ ] ***args y **kwargs**
+- [X] ***args y **kwargs**
 
   <details><summary>Links</summary><p>
 
   * [*args and **kwargs in Python - GeeksforGeeks (en inglés)](https://www.geeksforgeeks.org/args-kwargs-python/)
 </p></details>
+   *args (one * and a name) allows you to pass a varying number of positional arguments.
+   **kwargs (** and a name) accepts keyword (or named) arguments. **kwargs allows you to capture a variable number of keyword arguments passed to the function as a dictionary.
+    The correct order for your parameters is:
+    Standard arguments
+    *args arguments
+    **kwargs arguments
 
-- [ ] **Cierres (closures)**
+- [X] **Cierres (closures)**
 
   <details><summary>Links</summary><p>
 
   * [Closures - Python Docs (en inglés)](https://docs.python.org/3/reference/datamodel.html#emulating-closures-and-nested-scope)
 </p></details>
 
-- [ ] **Funciones lambda**
+- [] **Funciones lambda**
 
   <details><summary>Links</summary><p>
 
@@ -176,8 +188,8 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [How to Use Python Lambda Functions – Real Python (en inglés)](https://realpython.com/python-lambda/)
 </p></details>
 
-- [ ] **Decoradores**
-
+- [X] **Decoradores**
+   Un decorador es una función la cual toma como input una función y a su vez retorna otra función
   <details><summary>Links</summary><p>
 
   * [Decorators - Python Docs (en inglés)](https://docs.python.org/3/glossary.html#term-decorator)
@@ -186,7 +198,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 #### Iteración
 
-- [ ] **Uso de bucles/ciclos (while, for..in)**
+- [X] **Uso de bucles/ciclos (while, for..in)**
 
   <details><summary>Links</summary><p>
 
@@ -194,8 +206,8 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Loops - Learn Python - Free Interactive Python Tutorial](https://www.learnpython.org/en/Loops)
 </p></details>
 
-- [ ] **Comprensión de listas**
-
+- [X] **Comprensión de listas**
+  Para crear nuevas listas
   <details><summary>Links</summary><p>
 
   * [List Comprehension - Python Docs (en inglés)](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
@@ -203,7 +215,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [When to Use a List Comprehension in Python – Real Python (en inglés)](https://realpython.com/list-comprehension-python/)
 </p></details>
 
-- [ ] **Técnicas funcionales (map, filter, reduce)**
+- [X] **Técnicas funcionales (map, filter, reduce)**
 
   <details><summary>Links</summary><p>
 
@@ -213,7 +225,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 #### Testing en Python
 
-- [ ] **Pruebas unitarias (unit tests, unittest, pytest)**
+- [X] **Pruebas unitarias (unit tests, unittest, pytest)**
 
   <details><summary>Links</summary><p>
 
@@ -221,7 +233,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [pytest - Documentación oficial](https://docs.pytest.org/en/6.2.x/)
 </p></details>
 
-- [ ] **Uso de mocks (y patch)**
+- [X] **Uso de mocks (y patch)**
 
   <details><summary>Links</summary><p>
 
@@ -229,7 +241,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Python Mock Library - Real Python (en inglés)](https://realpython.com/python-mock-library/)
 </p></details>
 
-- [ ] **Uso de fixtures**
+- [X] **Uso de fixtures**
 
   <details><summary>Links</summary><p>
 
@@ -238,7 +250,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 #### Modularización
 
-- [ ] **Módulos**
+- [X] **Módulos**
 
   <details><summary>Links</summary><p>
 
@@ -254,14 +266,14 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 #### Manejo de dependencias
 
-- [ ] **pip (instalación y uso de paquetes)**
+- [X] **pip (instalación y uso de paquetes)**
 
   <details><summary>Links</summary><p>
 
   * [pip - Python Docs (en inglés)](https://docs.python.org/3/installing/index.html)
 </p></details>
 
-- [ ] **Virtual Environment (ambientes virtuales, virtualenv)**
+- [X] **Virtual Environment (ambientes virtuales, virtualenv)**
 
   <details><summary>Links</summary><p>
 
@@ -269,7 +281,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Python Virtual Environments: A Primer – Real Python (en inglés)](https://realpython.com/python-virtual-environments-a-primer/)
 </p></details>
 
-- [ ] **requirements.txt**
+- [X] **requirements.txt**
 
   <details><summary>Links</summary><p>
 
@@ -515,7 +527,7 @@ SQL Alchemy db.models: Para crear las tablas equivalentes a la bd *
   * [DELETE](https://www.postgresql.org/docs/8.1/sql-delete.html)
 </p></details>
 
-- [ ] **Borrado de tablas o bases de datos enteras con DROP**
+- [X] **Borrado de tablas o bases de datos enteras con DROP**
 
   <details><summary>Links</summary><p>
 
@@ -525,22 +537,22 @@ SQL Alchemy db.models: Para crear las tablas equivalentes a la bd *
 
 ### Bases de datos
 
-- [ ] **Modelado de datos**
+- [X] **Modelado de datos**
 
-- [ ] **Conexión**
+- [X] **Conexión**
 
-- [ ] **Índices y limitaciones**
+- [X] **Índices y limitaciones**
 
 ### PostgreSQL
 
-- [ ] **Tipos de datos**
+- [X] **Tipos de datos**
 
   <details><summary>Links</summary><p>
 
   * [Chapter 8. Data Types - Docs (en inglés)](https://www.postgresql.org/docs/14/datatype.html)
 </p></details>
 
-- [ ] **Índices**
+- [X] **Índices**
 
   <details><summary>Links</summary><p>
 

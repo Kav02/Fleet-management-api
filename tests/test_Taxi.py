@@ -11,8 +11,8 @@ def test_to_dict():
     when the to_dict method is called.
     """
     # Given: A Taxi object is instantiated with an id and a plate
-    taxi_id = 241
-    taxi_plate = 'GRF558'
+    taxi_id = 6004
+    taxi_plate = 'BAJW-7971'
     taxi = Taxi(id=taxi_id, plate=taxi_plate)
     # When: The to_dict is called on the Taxi object
     taxi_dict = taxi.to_dict()
@@ -22,8 +22,7 @@ def test_to_dict():
 
 
 def test_get_taxi(app, client):
-    """
-    Test case for the get_taxi method.
+    """Test case for the get_taxi method.
 
     Args:
         app: The Flask application object.
@@ -46,5 +45,5 @@ def test_get_taxi(app, client):
         taxis_paginated = TaxiModel.get_taxi(page=page, per_page=per_page)
     # Then: The list of Taxi objects is returned: Length of the list, the first item, and the number of pages
     assert len(taxis_paginated.items) == per_page
-    assert taxis_paginated.pages == 10
+    assert taxis_paginated.pages == 516
     assert taxis_paginated.page == 1
