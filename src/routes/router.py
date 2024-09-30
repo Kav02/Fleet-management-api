@@ -45,9 +45,9 @@ def index():
 def get_taxis_list():
     '''Returns a list of taxis paginated.'''
     try:
-        # request... Obtiene el valor del parámetro "page" de la URL del HTTP.
+        # request... Gets the value of the “page” parameter of the HTTP URL.
         page = int(request.args.get('page', 1))
-        # Por defecto, 10 registros por página
+        # Default, 10 records per page
         per_page = int(request.args.get('per_page', 10))
         taxis_paginated = TaxiModel.get_taxi(page=page, per_page=per_page)
         # taxis_list = [taxi.to_JSON() for taxi in taxis_paginated.items]

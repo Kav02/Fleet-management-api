@@ -29,18 +29,18 @@ def app_context():
         yield
 
 
-@pytest.fixture
-def mock_session(app):
-    """Mocks the database session object for testing database interactions."""
-    with patch.object(db, 'session') as mock_session:
-        mock_session.query.return_value.join.return_value.all.return_value = results
-        yield mock_session
+# @pytest.fixture
+# def mock_session(app):
+#     """Mocks the database session object for testing database interactions."""
+#     with patch.object(db, 'session') as mock_session:
+#         mock_session.query.return_value.join.return_value.all.return_value = results
+#         yield mock_session
 
 
-@pytest.fixture
+# @pytest.fixture
 
-def results():
-    return [
-    (1, 'ABC123', 37.7749, -122.4194, datetime(2022, 1, 1, 12, 0, 0)),
-    (2, 'DEF456', 34.0522, -118.2437, datetime(2022, 1, 2, 10, 30, 0))
-    ]
+# def results():
+#     return [
+#     (1, 'ABC123', 37.7749, -122.4194, datetime(2022, 1, 1, 12, 0, 0)),
+#     (2, 'DEF456', 34.0522, -118.2437, datetime(2022, 1, 2, 10, 30, 0))
+#     ]
